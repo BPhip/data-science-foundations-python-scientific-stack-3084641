@@ -22,13 +22,13 @@ lat2, lng2 = df.loc[201]['lat'], df.iloc[201]['lng']
 distance(lat1, lng1, lat2, lng2)
 # %%
 s = pd.Series(np.arange(5))
-s
+s # We are going to create a series of items 
 
 # %%
-s.shift()
+s.shift() # Shift moves all items down by one, with 0 becoming NaN
 
 # %%
-s.shift(-1)
+s.shift(-1) # A shift of -1 increases everything by 1, with the top value going into NaN
 
 
 # %%
@@ -36,17 +36,17 @@ dist = distance(
     df['lat'], df['lng'], 
     df['lat'].shift(), df['lng'].shift(),
 )
-dist[:5]
+dist[:5] # This is giving the distance between a point and the previous point and saving it to a dataframe
 
 # %%
-dist.sum()
+dist.sum() # This gives us a total of 4.7km (ish) - which sounds reasonable
 
 # %%
 times = df['time'].diff()
-times[:5]
+times[:5] # This gives a set of differences between each point and the last one
 
 # %%
-times.sum()
+times.sum() # A total time of 32 mins - this is reasonable
 
 # %%
 
@@ -55,4 +55,5 @@ times_hour[:5]
 
 # %%
 speed = dist / times_hour
-speed[:5]
+speed[:5] # This is showing speed in km/h (with an error showing up of the 35 km/h)
+# %%

@@ -22,20 +22,20 @@ times_hour = times / pd.Timedelta(1, 'hour')
 speed = dist / times_hour
 
 # %%
-speed.describe()
+speed.describe() # This gives a summary of the dataset
 
 # %%
-speed.plot.box()
+speed.plot.box() # This outputs a boxplot of the dataset
 
 # %%
 import matplotlib.pyplot as plt
 
 plt.rcParams['figure.figsize'] = (10, 6)
 plt.style.use('seaborn-whitegrid')
-speed.plot.box()
+speed.plot.box() # Here are some parameters that we can fiddle with
 
 # %%
-speed.name = ''
+speed.name = '' # Further fiddling
 ax = speed.plot.box(title="Miki's Run")
 ax.set_ylabel(
     r'Running speed $\frac{km}{h}$')
